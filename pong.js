@@ -3,6 +3,13 @@ const canvas = document.querySelector('canvas');
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// event listeners to listen for the pressed keys:
+document.addEventListener('keydown', keyDownHandler, false);
+document.addEventListener('keyup', keyUpHandler, false);
+
+
+
+
 const ctx = canvas.getContext('2d');
 
 addEventListener("resize", function() {
