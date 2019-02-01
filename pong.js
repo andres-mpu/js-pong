@@ -23,6 +23,35 @@ var arrowUp = false;
 var arrowDown = false;
 var keyW = false;
 var keyS = false;
+// handle the key up and key down events
+function keyDownHandler(event) {
+  if(event.keyCode == 38) {
+    arrowUp = true;
+  }
+  else if(event.keyCode == 40) {
+    arrowDown = true;
+  }
+  if(event.keyCode == 87) {
+    keyW = true;
+  }
+  else if(event.keyCode == 83) {
+    keyS = true;
+  }
+}
+function keyUpHandler(event) {
+  if(event.keyCode == 38) {
+    arrowUp = false;
+  }
+  else if(event.keyCode == 40) {
+    arrowDown = false;
+  }
+  if(event.keyCode == 87) {
+    keyW = false;
+  }
+  else if(event.keyCode == 83) {
+    keyS = false;
+  }
+}
 
 // KEYBOARD CONTROLS END
 
