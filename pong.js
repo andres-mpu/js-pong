@@ -3,6 +3,15 @@ const canvas = document.querySelector('canvas');
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const ctx = canvas.getContext('2d');
+
+addEventListener("resize", function() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // calling init resizes ojects rather than creating new ones
+  init();
+});
+
 // event listeners to listen for the pressed keys:
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
@@ -13,14 +22,7 @@ var arrowDown = false;
 var keyW = false;
 var keyS = false;
 
-const ctx = canvas.getContext('2d');
 
-addEventListener("resize", function() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  // calling init resizes ojects rather than creating new ones
-  init();
-});
 // use pythagoran theorem to calculate distance
 function getDistance(x1, y1, x2, y2) {
   return Math.sqrt( Math.pow(x2 - x1, 2 ) + Math.pow(y2 - y1, 2) );
