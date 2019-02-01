@@ -12,6 +12,8 @@ addEventListener("resize", function() {
   init();
 });
 
+// KEYBOARD CONTROLS START
+
 // event listeners to listen for the pressed keys:
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
@@ -22,6 +24,7 @@ var arrowDown = false;
 var keyW = false;
 var keyS = false;
 
+// KEYBOARD CONTROLS END
 
 // use pythagoran theorem to calculate distance
 function getDistance(x1, y1, x2, y2) {
