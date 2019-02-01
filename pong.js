@@ -38,16 +38,24 @@ class Circle {
 
   update() {
     // reset ball when it goes beyond the left or right edges of window
-    if(this.x + this.r > innerWidth || this.x - this.r < 0)
-      this.dx = -this.dx;
+    if(this.x + this.r > innerWidth || this.x - this.r < 0) {
+      // set ball x and y coordinates back to center of window
+      this.x = innerWidth / 2;
+      this.y = innerHeight / 2;
+    }
     // bounce ball from the top and bottom edges of window
-    if(this.y + this.r > innerHeight || this.y - this.r < 0)
+    if(this.y + this.r > innerHeight || this.y - this.r < 0) {
       this.dy = -this.dy;
-
+    }
+    // keep ball moving by updating the x and y coordinates
     this.x += this.dx;
     this.y += this.dy;
 
     this.draw();
+  }
+
+  bounce() {
+    this.dx = -this.dx;
   }
 
   get_x() {
@@ -145,6 +153,20 @@ function animate() {
   rec1.update();
   rec2.update();
 
+  if(cir.get_x() > rec2.get_x() &&
+  cir.get_x() < rec2.get_x() + rec2.get_width() &&
+  cir.get_y() > rec2.get_y() &&
+  cir.get_y() < rec2.get_y() + rec2.get_height()
+) {
+  cir.bounce();
+}
+else if (cir.get_x() > rec1.get_x() &&
+cir.get_x() < rec1.get_x() + rec1.get_width() &&
+cir.get_y() > rec1.get_y() &&
+cir.get_y() < rec1.get_y() + rec1.get_height()
+) {
+  cir.bounce();
+}
 }
 
 init();
