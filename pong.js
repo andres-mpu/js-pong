@@ -7,8 +7,11 @@ canvas.height = window.innerHeight;
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
 
-
-
+// store information wether the keys were pressed
+var arrowUp = false;
+var arrowDown = false;
+var keyW = false;
+var keyS = false;
 
 const ctx = canvas.getContext('2d');
 
