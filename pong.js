@@ -11,11 +11,9 @@ addEventListener("resize", function() {
   // calling init resizes ojects rather than creating new ones
   init();
 });
-
+// use pythagoran theorem to calculate distance
 function getDistance(x1, y1, x2, y2) {
-
-  return Math.sqrt( Math.pow( (x2 - x1), 2) + Math.pow( (y2 - y1), 2));
-
+  return Math.sqrt( Math.pow(x2 - x1, 2 ) + Math.pow(y2 - y1, 2) );
 }
 
 class Circle {
@@ -146,6 +144,7 @@ function animate() {
   cir.update();
   rec1.update();
   rec2.update();
+
 }
 
 init();
