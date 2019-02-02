@@ -55,11 +55,6 @@ function keyUpHandler(event) {
 
 // KEYBOARD CONTROLS END
 
-// use pythagoran theorem to calculate distance
-function getDistance(x1, y1, x2, y2) {
-  return Math.sqrt( Math.pow(x2 - x1, 2 ) + Math.pow(y2 - y1, 2) );
-}
-
 class Circle {
 
   constructor(x, y, r, dx, dy) {
@@ -196,21 +191,20 @@ function animate() {
   cir.update();
   rec1.update();
   rec2.update();
-
+  // confirm that ball object has collided with paddle
   if(cir.get_x() > rec2.get_x() &&
   cir.get_x() < rec2.get_x() + rec2.get_width() &&
   cir.get_y() > rec2.get_y() &&
-  cir.get_y() < rec2.get_y() + rec2.get_height()
-) {
-  cir.bounce();
-}
-else if (cir.get_x() > rec1.get_x() &&
-cir.get_x() < rec1.get_x() + rec1.get_width() &&
-cir.get_y() > rec1.get_y() &&
-cir.get_y() < rec1.get_y() + rec1.get_height()
-) {
-  cir.bounce();
-}
+  cir.get_y() < rec2.get_y() + rec2.get_height() ) {
+    cir.bounce();
+  }
+  else if (cir.get_x() > rec1.get_x() &&
+  cir.get_x() < rec1.get_x() + rec1.get_width() &&
+  cir.get_y() > rec1.get_y() &&
+  cir.get_y() < rec1.get_y() + rec1.get_height() ) {
+    cir.bounce();
+  }
+  // move paddle
 }
 
 init();
