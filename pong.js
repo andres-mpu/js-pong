@@ -89,7 +89,7 @@ class Circle {
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
       this.dy = -this.dy;
-    }    
+    }
 
     this.draw();
   }
@@ -120,9 +120,10 @@ class Circle {
 
 class Rectangle {
 
-  constructor(x, y, width, height) {
+  constructor(x, y, width, height, dy) {
     this.x = x;
     this.y = y;
+    this.dy = dy;
     this.width = width;
     this.height = height;
   }
@@ -146,6 +147,9 @@ class Rectangle {
   get_y() {
     return this.y;
   }
+  get_dy() {
+    return this.dy;
+  }
   get_width() {
     return this.width;
   }
@@ -163,9 +167,6 @@ class Rectangle {
   }
   set_height(val) {
     this.height = val;
-  }
-  set_dx(val) {
-    this.dx = val;
   }
   set_dy(val) {
     this.dy = val;
