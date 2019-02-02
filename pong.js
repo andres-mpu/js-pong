@@ -141,6 +141,14 @@ class Rectangle {
     this.draw();
   }
 
+  up() {
+    this.y -= this.dy;
+  }
+
+  down() {
+    this.y += this.dy;
+  }
+
   get_x() {
     return this.x;
   }
@@ -180,8 +188,8 @@ let cir;
 
 function init() {
   cir = new Circle(innerWidth / 2, innerHeight / 2, 19, 4, 4);
-  rec1 = new Rectangle(200, 200, 20, innerHeight / 4);
-  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4);
+  rec1 = new Rectangle(200, 200, 20, innerHeight / 4, 4);
+  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, 4);
 }
 
 function animate() {
@@ -193,6 +201,7 @@ function animate() {
   cir.update();
   rec1.update();
   rec2.update();
+
   // confirm that ball object has collided with paddle
   if(cir.get_x() > rec2.get_x() &&
   cir.get_x() < rec2.get_x() + rec2.get_width() &&
@@ -207,6 +216,18 @@ function animate() {
     cir.bounce();
   }
   // move paddle
+  if(arrowUp) {
+    rec2.up();
+  }
+  else if(arrowDown) {
+    rec2.down();
+  }
+  else if(keyW) {
+    rec1.up();
+  }
+  else if(keyS) {
+    rec1.down();
+  }
 }
 
 init();
