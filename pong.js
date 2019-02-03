@@ -185,10 +185,16 @@ class Rectangle {
 let rec1;
 let rec2;
 let cir;
+let speed;
+
+let p1_score;
+let p2_score;
 
 function init() {
 
-  let speed = 4;
+  speed = 4;
+  p1_score = 0;
+  p2_score = 0;
 
   cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
   rec1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
