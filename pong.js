@@ -142,8 +142,8 @@ class Rectangle {
 }
 
 // paddle / rectangle
-let rec1;
-let rec2;
+let p1;
+let p2;
 let cir;
 let speed;
 
@@ -155,8 +155,8 @@ function init() {
   p2_score = 0;
 
   cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
-  rec1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
-  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
+  p1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
+  p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
 }
 
 function animate() {
@@ -166,34 +166,34 @@ function animate() {
   ctx.clearRect(0, 0, innerWidth, innerHeight);
 
   cir.update();
-  rec2.update();
-  rec1.update();
+  p2.update();
+  p1.update();
 
   // confirm that ball object has collided with paddle
-  if(cir.get_x() > rec2.get_x() &&
-  cir.get_x() < rec2.get_x() + rec2.get_width() &&
-  cir.get_y() > rec2.get_y() &&
-  cir.get_y() < rec2.get_y() + rec2.get_height() ) {
+  if(cir.get_x() > p2.get_x() &&
+  cir.get_x() < p2.get_x() + p2.get_width() &&
+  cir.get_y() > p2.get_y() &&
+  cir.get_y() < p2.get_y() + p2.get_height() ) {
     cir.bounce();
   }
-  else if (cir.get_x() > rec1.get_x() &&
-  cir.get_x() < rec1.get_x() + rec1.get_width() &&
-  cir.get_y() > rec1.get_y() &&
-  cir.get_y() < rec1.get_y() + rec1.get_height() ) {
+  else if (cir.get_x() > p1.get_x() &&
+  cir.get_x() < p1.get_x() + p1.get_width() &&
+  cir.get_y() > p1.get_y() &&
+  cir.get_y() < p1.get_y() + p1.get_height() ) {
     cir.bounce();
   }
   // move paddle
   if(arrowUp) {
-    rec2.up();
+    p2.up();
   }
   else if(arrowDown) {
-    rec2.down();
+    p2.down();
   }
   else if(keyW) {
-    rec1.up();
+    p1.up();
   }
   else if(keyS) {
-    rec1.down();
+    p1.down();
   }
 }
 
