@@ -34,21 +34,21 @@ function keyDownHandler(event) {
   if(event.keyCode == 87) {
     keyW = true;
   }
-  else if(event.keyCode == 83) {
+  else if(event.keyCode === 83) {
     keyS = true;
   }
 }
 function keyUpHandler(event) {
-  if(event.keyCode == 38) {
+  if(event.keyCode === 38) {
     arrowUp = false;
   }
-  else if(event.keyCode == 40) {
+  else if(event.keyCode === 40) {
     arrowDown = false;
   }
-  if(event.keyCode == 87) {
+  if(event.keyCode === 87) {
     keyW = false;
   }
-  else if(event.keyCode == 83) {
+  else if(event.keyCode === 83) {
     keyS = false;
   }
 }
@@ -185,11 +185,15 @@ class Rectangle {
 let rec1;
 let rec2;
 let cir;
+let speed;
 
 function init() {
-  cir = new Circle(innerWidth / 2, innerHeight / 2, 19, 4, 4);
-  rec1 = new Rectangle(200, 200, 20, innerHeight / 4, 4);
-  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, 4);
+
+  speed = 4;
+
+  cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
+  rec1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
+  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
 }
 
 function animate() {
@@ -199,8 +203,9 @@ function animate() {
   ctx.clearRect(0, 0, innerWidth, innerHeight);
 
   cir.update();
-  rec1.update();
   rec2.update();
+  rec1.update();
+
 
   // confirm that ball object has collided with paddle
   if(cir.get_x() > rec2.get_x() &&
