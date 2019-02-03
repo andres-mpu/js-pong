@@ -25,13 +25,13 @@ var keyW = false;
 var keyS = false;
 // handle the key up and key down events
 function keyDownHandler(event) {
-  if(event.keyCode == 38) {
+  if(event.keyCode === 38) {
     arrowUp = true;
   }
-  else if(event.keyCode == 40) {
+  else if(event.keyCode === 40) {
     arrowDown = true;
   }
-  if(event.keyCode == 87) {
+  if(event.keyCode === 87) {
     keyW = true;
   }
   else if(event.keyCode === 83) {
