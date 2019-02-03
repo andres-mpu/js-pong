@@ -187,9 +187,12 @@ let rec2;
 let cir;
 
 function init() {
-  cir = new Circle(innerWidth / 2, innerHeight / 2, 19, 4, 4);
-  rec1 = new Rectangle(200, 200, 20, innerHeight / 4, 4);
-  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, 4);
+
+  let speed = 4;
+
+  cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
+  rec1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
+  rec2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
 }
 
 function animate() {
@@ -199,8 +202,9 @@ function animate() {
   ctx.clearRect(0, 0, innerWidth, innerHeight);
 
   cir.update();
-  rec1.update();
   rec2.update();
+  rec1.update();
+
 
   // confirm that ball object has collided with paddle
   if(cir.get_x() > rec2.get_x() &&
