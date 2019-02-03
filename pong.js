@@ -34,21 +34,21 @@ function keyDownHandler(event) {
   if(event.keyCode == 87) {
     keyW = true;
   }
-  else if(event.keyCode == 83) {
+  else if(event.keyCode === 83) {
     keyS = true;
   }
 }
 function keyUpHandler(event) {
-  if(event.keyCode == 38) {
+  if(event.keyCode === 38) {
     arrowUp = false;
   }
-  else if(event.keyCode == 40) {
+  else if(event.keyCode === 40) {
     arrowDown = false;
   }
-  if(event.keyCode == 87) {
+  if(event.keyCode === 87) {
     keyW = false;
   }
-  else if(event.keyCode == 83) {
+  else if(event.keyCode === 83) {
     keyS = false;
   }
 }
@@ -187,12 +187,10 @@ let rec2;
 let cir;
 let speed;
 
-let p1_score;
-let p2_score;
-
 function init() {
 
   speed = 4;
+
   p1_score = 0;
   p2_score = 0;
 
