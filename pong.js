@@ -81,10 +81,14 @@ class Circle {
     this.y += this.dy;
 
     // reset ball when it goes beyond the left or right edges of window
-    if(this.x + this.r > innerWidth || this.x - this.r < 0) {
+    if(this.x + this.r > innerWidth) {
       // set ball x and y coordinates back to center of window
-      this.x = innerWidth / 2;
-      this.y = innerHeight / 2;
+      this.reset();
+      console.log("point for p1")
+    }
+    else if(this.x - this.r < 0) {
+      this.reset();
+      console.log("point for p2")
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
@@ -92,6 +96,11 @@ class Circle {
     }
 
     this.draw();
+  }
+
+  reset() {
+    this.x = innerWidth / 2;
+    this.y = innerHeight / 2;
   }
 
   bounce() {this.dx = -this.dx;}
@@ -150,9 +159,6 @@ let speed;
 function init() {
 
   speed = 4;
-
-  p1_score = 0;
-  p2_score = 0;
 
   cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
   p1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
