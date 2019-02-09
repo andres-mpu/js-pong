@@ -153,7 +153,6 @@ class Rectangle {
   set_dy(val) {this.dy = val;}
 }
 
-// paddle / rectangle
 let p1;
 let p2;
 let cir;
