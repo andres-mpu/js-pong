@@ -5,6 +5,19 @@ canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext('2d');
 
+let p1_socre = 0;
+let p2_score = 0;
+
+ctx.fillStyle = 'white';
+ctx.font = '62px serif';
+ctx.beginPath();
+ctx.fillText(p1_socre, 200, 200);
+ctx.closePath();
+
+ctx.beginPath();
+ctx.fillText(p2_score, 600, 200);
+ctx.closePath();
+
 addEventListener("resize", function() {
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -204,4 +217,4 @@ function animate() {
 }
 
 init();
-animate();
+// animate();
