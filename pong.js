@@ -5,18 +5,8 @@ canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext('2d');
 
-let p1_socre = 0;
+let p1_score = 0;
 let p2_score = 0;
-
-ctx.fillStyle = 'white';
-ctx.font = '62px serif';
-ctx.beginPath();
-ctx.fillText(p1_socre, 200, 200);
-ctx.closePath();
-
-ctx.beginPath();
-ctx.fillText(p2_score, 600, 200);
-ctx.closePath();
 
 addEventListener("resize", function() {
   canvas.width  = window.innerWidth;
@@ -97,11 +87,11 @@ class Circle {
     if(this.x + this.r > innerWidth) {
       // set ball x and y coordinates back to center of window
       this.reset();
-      console.log("point for p1")
+      p1_score++;
     }
     else if(this.x - this.r < 0) {
       this.reset();
-      console.log("point for p2")
+      p2_score++;
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
@@ -188,6 +178,16 @@ function animate() {
   p2.update();
   p1.update();
 
+  ctx.fillStyle = 'white';
+  ctx.font = '62px serif';
+  ctx.beginPath();
+  ctx.fillText(p1_score, innerWidth - 500, innerHeight - 500);
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.fillText(p2_score, innerWidth - 900, innerHeight - 500);
+  ctx.closePath();
+
   // confirm that ball object has collided with paddle
   if(cir.get_x() > p2.get_x() &&
   cir.get_x() < p2.get_x() + p2.get_width() &&
@@ -217,4 +217,4 @@ function animate() {
 }
 
 init();
-// animate();
+animate();
