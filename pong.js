@@ -87,11 +87,11 @@ class Circle {
     if(this.x + this.r > innerWidth) {
       // set ball x and y coordinates back to center of window
       this.reset();
-      p1_score++;
+      p2_score++;
     }
     else if(this.x - this.r < 0) {
       this.reset();
-      p2_score++;
+      p1_score++;
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
