@@ -180,9 +180,11 @@ function animate() {
   p2.update();
   p1.update();
 
+  // PLAYER 1 & PLAYER 2 SCORE
   ctx.fillStyle = 'white';
   ctx.font = '62px serif';
   ctx.beginPath();
+  // fillText(text, x, y [, maxWidth])
   ctx.fillText(p1_score, innerWidth - 500, innerHeight - 500);
   ctx.closePath();
 
