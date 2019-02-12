@@ -171,11 +171,11 @@ function init() {
 }
 
 function animate() {
-
+  // recursive call to animate to emulate objects moving
   requestAnimationFrame(animate);
-
+  // erase the entire canvas prior to redrawing objects
   ctx.clearRect(0, 0, innerWidth, innerHeight);
-
+  // redraw objects
   cir.update();
   p2.update();
   p1.update();
