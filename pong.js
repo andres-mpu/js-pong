@@ -11,7 +11,7 @@ let p2_score = 0;
 addEventListener("resize", function() {
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
-  // calling init resizes ojects rather than creating new ones
+  // calling init resizes ojects rather than creating new ones upon window resize
   init();
 });
 
