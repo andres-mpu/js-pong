@@ -17,7 +17,7 @@ addEventListener("resize", function() {
 
 // KEYBOARD CONTROLS START
 
-// event listeners to listen for the pressed keys:
+// event listeners to listen for when keys are pressed and released:
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
 
