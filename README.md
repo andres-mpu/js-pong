@@ -1,3 +1,3 @@
 # pongJS
 
-Pong using HTML5 <canvas> and Javascript
+Pong using HTML5 canvas and Javascript
