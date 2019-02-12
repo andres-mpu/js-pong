@@ -153,9 +153,12 @@ class Rectangle {
   set_dy(val) {this.dy = val;}
 }
 
+// pong paddles for P1 and P2
 let p1;
 let p2;
+// pong ball
 let cir;
+// objects speed
 let speed;
 
 function init() {
