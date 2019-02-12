@@ -210,7 +210,7 @@ function animate() {
   else if(arrowDown) {
     p2.down();
   }
-  else if(keyW) {
+  if(keyW) {
     p1.up();
   }
   else if(keyS) {
