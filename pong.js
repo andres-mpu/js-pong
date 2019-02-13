@@ -146,6 +146,7 @@ class Rectangle {
   get_dy() {return this.dy;}
   get_width() {return this.width;}
   get_height() {return this.height;}
+
   set_x(val) {this.x = val;}
   set_y(val) {this.y = val;}
   set_width(val) {this.width = val;}
@@ -166,7 +167,7 @@ function init() {
   speed = 4;
 
   cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
-  p1 = new Rectangle(200, 200, 20, innerHeight / speed, speed);
+  p1 = new Rectangle(200, 200, 20, innerHeight / 4, speed);
   p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
 }
 
