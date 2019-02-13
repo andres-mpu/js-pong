@@ -135,11 +135,23 @@ class Rectangle {
     ctx.closePath();
   }
 
-  update() {this.draw();}
+  update() {
+    this.draw();
+  }
 
-  up() {this.y -= this.dy;}
+  up() {
+    // prevent paddle from moving off-screen
+    if(this.get_y() >= 0) {
+      this.y -= this.dy;
+    }
+  }
 
-  down() {this.y += this.dy;}
+  down() {
+    // prevent paddle from moving off-screen
+    if(this.get_y() <= (innerHeight - this.get_height()) ) {
+      this.y += this.dy;
+    }
+  }
 
   get_x() {return this.x;}
   get_y() {return this.y;}
