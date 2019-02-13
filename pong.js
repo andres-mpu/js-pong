@@ -140,14 +140,14 @@ class Rectangle {
   }
 
   up() {
-    // prevent paddle from moving off-screen
+    // confirm paddle is within canvas boundary
     if(this.get_y() >= 0) {
       this.y -= this.dy;
     }
   }
 
   down() {
-    // prevent paddle from moving off-screen
+    // confirm paddle is within canvas boundary
     if(this.get_y() <= (innerHeight - this.get_height()) ) {
       this.y += this.dy;
     }
