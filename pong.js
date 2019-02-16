@@ -18,7 +18,7 @@ addEventListener("resize", function() {
 // SOUND Tone.js
 
 // create a synth & connect it to the master audio output (speakers)
-var synth = new Tone.Synth().toMaster();
+const synth = new Tone.Synth().toMaster();
 
 // KEYBOARD CONTROLS START
 
