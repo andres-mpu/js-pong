@@ -91,22 +91,22 @@ class Circle {
     // reset ball when it goes beyond the left or right edges of window
     if(this.x + this.r > innerWidth) {
       // set ball x and y coordinates back to center of window
-      // play a middle 'C' for the duration of an 8th note
-      synth.triggerAttackRelease('C4', '8n')
+      // play a middle 'E' for the duration of an 8th note
+      synth.triggerAttackRelease('E4', '8n')
       this.reset();
       p2_score++;
     }
     else if(this.x - this.r < 0) {
-      // play a middle 'C' for the duration of an 8th note
-      synth.triggerAttackRelease('C4', '8n')
+      // play a middle 'E' for the duration of an 8th note
+      synth.triggerAttackRelease('E4', '8n')
       this.reset();
       p1_score++;
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
       this.dy = -this.dy;
-      // play a middle 'C' for the duration of an 8th note
-      synth.triggerAttackRelease('C4', '8n')
+      // play a middle 'D' for the duration of an 8th note
+      synth.triggerAttackRelease('D4', '8n')
     }
 
     this.draw();
