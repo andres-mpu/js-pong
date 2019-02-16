@@ -91,10 +91,14 @@ class Circle {
     // reset ball when it goes beyond the left or right edges of window
     if(this.x + this.r > innerWidth) {
       // set ball x and y coordinates back to center of window
+      // play a middle 'C' for the duration of an 8th note
+      synth.triggerAttackRelease('C4', '8n')
       this.reset();
       p2_score++;
     }
     else if(this.x - this.r < 0) {
+      // play a middle 'C' for the duration of an 8th note
+      synth.triggerAttackRelease('C4', '8n')
       this.reset();
       p1_score++;
     }
