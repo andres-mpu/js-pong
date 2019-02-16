@@ -101,6 +101,8 @@ class Circle {
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
       this.dy = -this.dy;
+      // play a middle 'C' for the duration of an 8th note
+      synth.triggerAttackRelease('C4', '8n')
     }
 
     this.draw();
