@@ -111,7 +111,11 @@ class Circle {
     this.y = innerHeight / 2;
   }
 
-  bounce() {this.dx = -this.dx;}
+  bounce() {
+    this.dx = -this.dx;
+    // play a middle 'C' for the duration of an 8th note
+    synth.triggerAttackRelease('C4', '8n')
+  }
 
   get_x() {return this.x;}
   get_y() {return this.y;}
