@@ -65,12 +65,12 @@ function keyUpHandler(event) {
 
 class Circle {
 
-  constructor(x, y, r, dx, dy) {
+  constructor(x, y, r, vx, vy) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.dx = dx;
-    this.dy = dy;
+    this.vx = vx;
+    this.vy = vy;
   }
 
   // Method
@@ -85,8 +85,8 @@ class Circle {
 
   update() {
     // keep ball moving by updating the x and y coordinates
-    this.x += this.dx;
-    this.y += this.dy;
+    this.x += this.vx;
+    this.y += this.vy;
 
     // reset ball when it goes beyond the left or right edges of window
     if(this.x + this.r > innerWidth) {
@@ -104,7 +104,7 @@ class Circle {
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
-      this.dy = -this.dy;
+      this.vy = -this.vy;
       // play a middle 'D' for the duration of an 8th note
       synth.triggerAttackRelease('D4', '8n')
     }
@@ -118,7 +118,7 @@ class Circle {
   }
 
   bounce() {
-    this.dx = -this.dx;
+    this.vx = -this.vx;
     // play a middle 'C' for the duration of an 8th note
     synth.triggerAttackRelease('C4', '8n')
   }
@@ -129,10 +129,10 @@ class Circle {
 
 class Rectangle {
 
-  constructor(x, y, width, height, dy) {
+  constructor(x, y, width, height, vy) {
     this.x = x;
     this.y = y;
-    this.dy = dy;
+    this.vy = vy;
     this.width = width;
     this.height = height;
   }
@@ -153,14 +153,14 @@ class Rectangle {
   up() {
     // confirm paddle is within canvas boundary
     if(this.get_y() >= 0) {
-      this.y -= this.dy;
+      this.y -= this.vy;
     }
   }
 
   down() {
     // confirm paddle is within canvas boundary
     if(this.get_y() <= (innerHeight - this.get_height()) ) {
-      this.y += this.dy;
+      this.y += this.vy;
     }
   }
 
