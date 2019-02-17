@@ -5,64 +5,29 @@ canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext('2d');
 
-let p1_score = 0;
-let p2_score = 0;
-
-addEventListener("resize", function() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  // calling init resizes ojects rather than creating new ones upon window resize
-  init();
-});
-
-// SOUND Tone.js
-
-// create a synth & connect it to the master audio output (speakers)
+// SOUND Tone.js create synth & connect it to the master audio output (speakers)
 const synth = new Tone.Synth().toMaster();
 
-// KEYBOARD CONTROLS START
+// pong paddles for P1 & P2
+let p1;
+let p2;
+// pong ball
+let cir;
+// objects speed
+let speed;
 
-// event listeners to listen for when keys are pressed and released:
-document.addEventListener('keydown', keyDownHandler, false);
-document.addEventListener('keyup', keyUpHandler, false);
+let p1_score = 0;
+let p2_score = 0;
 
 // store information wether the keys were pressed
 var arrowUp = false;
 var arrowDown = false;
 var keyW = false;
 var keyS = false;
-// handle the key up and key down events
-function keyDownHandler(event) {
-  if(event.keyCode === 38) {
-    arrowUp = true;
-  }
-  else if(event.keyCode === 40) {
-    arrowDown = true;
-  }
-  if(event.keyCode === 87) {
-    keyW = true;
-  }
-  else if(event.keyCode === 83) {
-    keyS = true;
-  }
-}
-function keyUpHandler(event) {
-  if(event.keyCode === 38) {
-    arrowUp = false;
-  }
-  else if(event.keyCode === 40) {
-    arrowDown = false;
-  }
-  if(event.keyCode === 87) {
-    keyW = false;
-  }
-  else if(event.keyCode === 83) {
-    keyS = false;
-  }
-}
 
-// KEYBOARD CONTROLS END
+// Object Classes
 
+// Class for ball
 class Circle {
 
   constructor(x, y, r, vx, vy) {
@@ -127,6 +92,7 @@ class Circle {
   get_y() {return this.y;}
 }
 
+// Class for paddles
 class Rectangle {
 
   constructor(x, y, width, height, vy) {
@@ -170,13 +136,50 @@ class Rectangle {
   get_height() {return this.height;}
 }
 
-// pong paddles for P1 and P2
-let p1;
-let p2;
-// pong ball
-let cir;
-// objects speed
-let speed;
+addEventListener("resize", function() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // calling init resizes ojects rather than creating new ones upon window resize
+  init();
+});
+
+// KEYBOARD CONTROLS START
+
+// event listeners to listen for when keys are pressed and released:
+document.addEventListener('keydown', keyDownHandler, false);
+document.addEventListener('keyup', keyUpHandler, false);
+
+// handle the key up and key down events
+function keyDownHandler(event) {
+  if(event.keyCode === 38) {
+    arrowUp = true;
+  }
+  else if(event.keyCode === 40) {
+    arrowDown = true;
+  }
+  if(event.keyCode === 87) {
+    keyW = true;
+  }
+  else if(event.keyCode === 83) {
+    keyS = true;
+  }
+}
+function keyUpHandler(event) {
+  if(event.keyCode === 38) {
+    arrowUp = false;
+  }
+  else if(event.keyCode === 40) {
+    arrowDown = false;
+  }
+  if(event.keyCode === 87) {
+    keyW = false;
+  }
+  else if(event.keyCode === 83) {
+    keyS = false;
+  }
+}
+
+// KEYBOARD CONTROLS END
 
 function init() {
 
@@ -186,6 +189,7 @@ function init() {
   p1 = new Rectangle(200, 200, 12, innerHeight / 8, speed);
   p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 12, innerHeight / 8, speed);
 }
+
 // draw score
 function display() {
   // PLAYER 1 & PLAYER 2 SCORE
