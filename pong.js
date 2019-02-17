@@ -186,17 +186,8 @@ function init() {
   p1 = new Rectangle(200, 200, 12, innerHeight / 8, speed);
   p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 12, innerHeight / 8, speed);
 }
-
-function animate() {
-  // recursive call to animate to emulate objects moving
-  requestAnimationFrame(animate);
-  // erase the entire canvas prior to redrawing objects
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-  // redraw objects
-  cir.update();
-  p2.update();
-  p1.update();
-
+// draw score
+function display() {
   // PLAYER 1 & PLAYER 2 SCORE
   ctx.fillStyle = 'white';
   ctx.font = '62px ubuntu';
@@ -208,6 +199,19 @@ function animate() {
   ctx.beginPath();
   ctx.fillText(p2_score, innerWidth - 900, innerHeight - 500);
   ctx.closePath();
+}
+
+function animate() {
+  // recursive call to animate to emulate objects moving
+  requestAnimationFrame(animate);
+  // erase the entire canvas prior to redrawing objects
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  // draw score
+  display();
+  // redraw objects
+  cir.update();
+  p2.update();
+  p1.update();
 
   // confirm that ball object has collided with paddle
   if(cir.get_x() > p2.get_x() &&
