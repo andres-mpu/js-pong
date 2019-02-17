@@ -89,7 +89,7 @@ class Circle {
     this.y += this.dy;
 
     // reset ball when it goes beyond the left or right edges of window
-    if(this.x + this.r > innerWidth) {      
+    if(this.x + this.r > innerWidth) {
       // play a middle 'E' for the duration of an 8th note
       synth.triggerAttackRelease('E4', '8n')
       // set ball x and y coordinates back to center of window
@@ -191,11 +191,11 @@ let speed;
 
 function init() {
 
-  speed = 4;
+  speed = 6;
 
-  cir = new Circle(innerWidth / 2, innerHeight / 2, 19, speed, speed);
-  p1 = new Rectangle(200, 200, 20, innerHeight / 4, speed);
-  p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 20, innerHeight / 4, speed);
+  cir = new Circle(innerWidth / 2, innerHeight / 2, 12, speed, speed);
+  p1 = new Rectangle(200, 200, 12, innerHeight / 8, speed);
+  p2 = new Rectangle(innerWidth - 200, innerHeight - 400, 12, innerHeight / 8, speed);
 }
 
 function animate() {
