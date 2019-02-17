@@ -125,10 +125,6 @@ class Circle {
 
   get_x() {return this.x;}
   get_y() {return this.y;}
-  get_r() {return this.r;}
-  set_x(val) {this.x = val;}
-  set_y(val) {this.y = val;}
-  set_r(val) {this.r = val;}
 }
 
 class Rectangle {
@@ -170,15 +166,8 @@ class Rectangle {
 
   get_x() {return this.x;}
   get_y() {return this.y;}
-  get_dy() {return this.dy;}
   get_width() {return this.width;}
   get_height() {return this.height;}
-
-  set_x(val) {this.x = val;}
-  set_y(val) {this.y = val;}
-  set_width(val) {this.width = val;}
-  set_height(val) {this.height = val;}
-  set_dy(val) {this.dy = val;}
 }
 
 // pong paddles for P1 and P2
