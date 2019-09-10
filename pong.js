@@ -145,6 +145,13 @@ addEventListener("resize", function() {
 
 // KEYBOARD CONTROLS START
 
+// prevent the space and arrow keys from scrolling
+window.addEventListener("keydown", function(e) {
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
+}, false);
+
 // event listeners to listen for when keys are pressed and released:
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
