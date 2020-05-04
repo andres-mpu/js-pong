@@ -16,8 +16,8 @@ let cir;
 // objects speed
 let speed;
 
-let p1_score = 0;
-let p2_score = 0;
+let p1Score = 0;
+let p2Score = 0;
 
 // store information wether the keys were pressed
 var arrowUp = false;
@@ -59,13 +59,13 @@ class Circle {
       synth.triggerAttackRelease('E4', '8n')
       // set ball x and y coordinates back to center of window
       this.reset();
-      p2_score++;
+      p2Score++;
     }
     else if(this.x - this.r < 0) {
       // play a middle 'E' for the duration of an 8th note
       synth.triggerAttackRelease('E4', '8n')
       this.reset();
-      p1_score++;
+      p1Score++;
     }
     // bounce ball from the top and bottom edges of window
     if(this.y + this.r > innerHeight || this.y - this.r < 0) {
@@ -88,8 +88,8 @@ class Circle {
     synth.triggerAttackRelease('C4', '8n')
   }
 
-  get_x() {return this.x;}
-  get_y() {return this.y;}
+  getX() {return this.x;}
+  getY() {return this.y;}
 }
 
 // Class for paddles
@@ -118,22 +118,22 @@ class Rectangle {
 
   up() {
     // confirm paddle is within canvas boundary
-    if(this.get_y() >= 0) {
+    if(this.getY() >= 0) {
       this.y -= this.vy;
     }
   }
 
   down() {
     // confirm paddle is within canvas boundary
-    if(this.get_y() <= (innerHeight - this.get_height()) ) {
+    if(this.getY() <= (innerHeight - this.getHeight()) ) {
       this.y += this.vy;
     }
   }
 
-  get_x() {return this.x;}
-  get_y() {return this.y;}
-  get_width() {return this.width;}
-  get_height() {return this.height;}
+  getX() {return this.x;}
+  getY() {return this.y;}
+  getWidth() {return this.width;}
+  getHeight() {return this.height;}
 }
 
 addEventListener("resize", function() {
@@ -204,11 +204,11 @@ function display() {
   ctx.font = '62px ubuntu';
   ctx.beginPath();
   // fillText(text, x, y [, maxWidth])
-  ctx.fillText(p1_score, innerWidth - 500, innerHeight - 500);
+  ctx.fillText(p1Score, innerWidth - 500, innerHeight - 500);
   ctx.closePath();
 
   ctx.beginPath();
-  ctx.fillText(p2_score, innerWidth - 900, innerHeight - 500);
+  ctx.fillText(p2Score, innerWidth - 900, innerHeight - 500);
   ctx.closePath();
 }
 
@@ -225,16 +225,16 @@ function animate() {
   p1.update();
 
   // confirm that ball object has collided with paddle
-  if(cir.get_x() > p2.get_x() &&
-  cir.get_x() < p2.get_x() + p2.get_width() &&
-  cir.get_y() > p2.get_y() &&
-  cir.get_y() < p2.get_y() + p2.get_height() ) {
+  if(cir.getX() > p2.getX() &&
+  cir.getX() < p2.getX() + p2.getWidth() &&
+  cir.getY() > p2.getY() &&
+  cir.getY() < p2.getY() + p2.getHeight() ) {
     cir.bounce();
   }
-  else if (cir.get_x() > p1.get_x() &&
-  cir.get_x() < p1.get_x() + p1.get_width() &&
-  cir.get_y() > p1.get_y() &&
-  cir.get_y() < p1.get_y() + p1.get_height() ) {
+  else if (cir.getX() > p1.getX() &&
+  cir.getX() < p1.getX() + p1.getWidth() &&
+  cir.getY() > p1.getY() &&
+  cir.getY() < p1.getY() + p1.getHeight() ) {
     cir.bounce();
   }
   // move paddle
