@@ -190,7 +190,7 @@ function keyUpHandler(event) {
 
 function init() {
 
-  speed = 6;
+  speed = 4;
 
   cir = new Circle(innerWidth / 2, innerHeight / 2, 12, speed, speed);
   p1 = new Rectangle(200, 200, 12, innerHeight / 8, speed);
