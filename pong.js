@@ -147,6 +147,7 @@ addEventListener("resize", function() {
 
 // prevent the space and arrow keys from scrolling
 window.addEventListener("keydown", function(e) {
+  // 32: space; 37: left 38: up; 39: right; 40: down;
   if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
     e.preventDefault();
   }
